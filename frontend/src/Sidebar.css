@@ -1,0 +1,346 @@
+.sidebar {
+  background: #0f0f17;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  color: #b4b4b4;
+  height: 100vh;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* ===== TOP AREA ===== */
+.sidebarTop {
+  padding: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.brandLogo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #7c5cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.newChatBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background: #171722;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.newChatBtn:hover {
+  background: #1e1e2d;
+}
+
+/* ===== RECENT TITLE ===== */
+.recentTitle {
+  color: #7f7f7f;
+  font-size: 12px;
+  padding: 0 20px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== HISTORY ===== */
+.history {
+  margin: 0 10px 10px;
+  padding: 0 6px 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* dark scrollbar */
+.history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.history::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 10px;
+}
+
+.history::-webkit-scrollbar-thumb:hover {
+  background: #3a3a4a;
+}
+
+.history {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a3a transparent;
+}
+
+.history li {
+  list-style: none;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #d4d0e8;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.history li:hover {
+  background: #1d1d2b;
+}
+
+.highlighted {
+  background: #252536;
+}
+
+/* trash icon */
+.fa-trash-can {
+  opacity: 0;
+  transition: 0.2s ease;
+  flex-shrink: 0;
+}
+
+.history li:hover .fa-trash-can {
+  opacity: 1;
+  color: #fff;
+}
+
+.fa-trash-can:hover {
+  color: #f87171 !important;
+}
+
+/* ===== GENERIC BUTTON RESET INSIDE SIDEBAR ===== */
+.sidebar button {
+  font-family: inherit;
+}
+
+/* ===== SIDEBAR USER PROFILE ===== */
+.sign {
+  margin-top: auto;
+  width: 100%;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #171422;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.signAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #7c5cff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(124, 92, 255, 0.28);
+}
+
+.signInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.signInfo h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.signInfo p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #a5a0bd;
+  line-height: 1.2;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobileMenuBtn {
+  display: none;
+}
+
+.sidebarOverlay {
+  display: none;
+}
+
+.closeSidebar {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 0 0 15px auto;
+  padding: 0;
+  font-size: 20px;
+}
+
+/* ===== TABLET + MOBILE ===== */
+@media (max-width: 768px) {
+  .mobileMenuBtn {
+    display: flex;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 42px;
+    height: 42px;
+    z-index: 1002;
+    background: #171722;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+
+  .sidebarOverlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 280px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.sidebarOpen {
+    left: 0;
+  }
+
+  .closeSidebar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .sidebarTop {
+    padding: 14px;
+  }
+
+  .brand {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .brandLogo {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .newChatBtn {
+    font-size: 13px;
+    padding: 11px 12px;
+    border-radius: 10px;
+  }
+
+  .recentTitle {
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .history {
+    margin: 0 8px 8px;
+    padding: 0 4px 8px;
+  }
+
+  .history li {
+    padding: 11px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .sign {
+    padding: 12px 14px;
+  }
+
+  .signAvatar {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .signInfo h4 {
+    font-size: 13px;
+  }
+
+  .signInfo p {
+    font-size: 11px;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .mobileMenuBtn {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .history li {
+    font-size: 12.5px;
+  }
+
+  .sign {
+    gap: 10px;
+  }
+
+  .signAvatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,114 @@
+.useCases {
+  width: 95%;
+  max-width: 1450px;
+
+  margin: 180px auto;
+
+  text-align: center;
+}
+
+.useCases h2 {
+  font-size: 64px;
+
+  font-weight: 800;
+
+  color: #1f1b4d;
+
+  margin-top: 22px;
+}
+
+.useCases > p {
+  color: #6d6985;
+
+  font-size: 18px;
+
+  margin-top: 18px;
+}
+
+.useCaseGrid {
+  margin-top: 70px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 26px;
+}
+
+.useCaseCard {
+  background: #f0ebff;
+
+  border: 1px solid #ddd6ff;
+
+  border-radius: 26px;
+
+  padding: 34px;
+
+  text-align: left;
+
+  min-height: 210px;
+
+  transition: 0.3s;
+}
+
+.useCaseCard:hover {
+  transform: translateY(-8px);
+}
+
+.useCaseIcon {
+  width: 48px;
+  height: 48px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5b3df5;
+
+  font-size: 20px;
+
+  margin-bottom: 20px;
+}
+
+.useCaseCard h3 {
+  color: #1f1b4d;
+
+  margin-bottom: 12px;
+
+  font-size: 22px;
+}
+
+.useCaseCard p {
+  color: #6d6985;
+
+  line-height: 1.7;
+}
+@media (max-width: 1024px) {
+
+  .useCaseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .useCases h2 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .useCaseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .useCases h2 {
+    font-size: 34px;
+  }
+
+  .useCaseCard {
+    min-height: auto;
+  }
+}

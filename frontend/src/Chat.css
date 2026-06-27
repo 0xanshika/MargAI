@@ -1,0 +1,180 @@
+.chats{
+    flex:1;
+
+    width:100%;
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:25px;
+
+    overflow-y:auto;
+
+    color:white;
+}
+
+/* scrollbar */
+
+.chats::-webkit-scrollbar{
+    width:6px;
+}
+
+.chats::-webkit-scrollbar-thumb{
+    background:#222;
+    border-radius:20px;
+}
+
+/* USER */
+
+.userDiv{
+    display:flex;
+    justify-content:flex-end;
+
+    margin:18px 0;
+}
+
+.userMessage{
+    background:#2d2d38;
+
+    padding:12px 18px;
+
+    border-radius:18px;
+
+    max-width:80%;
+}
+
+/* AI */
+
+.gptDiv{
+    display:flex;
+    justify-content:flex-start;
+
+    margin:18px 0;
+}
+
+.gptMessage{
+    max-width:80%;
+
+    padding:12px 18px;
+
+    border-radius:18px;
+
+    background:#171722;
+}
+
+.gptDiv *{
+    word-break:break-word;
+}
+
+/* CODE */
+
+.gptDiv pre{
+    overflow-x:auto;
+
+    background:#0f1117;
+
+    padding:12px;
+
+    border-radius:12px;
+}
+
+.gptDiv p code{
+    background:#242433;
+
+    padding:2px 5px;
+
+    border-radius:6px;
+}
+
+.welcome{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.welcomeIcon{
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#171722;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+}
+
+.welcome h1{
+    font-size:42px;
+    font-weight:700;
+
+    margin:10px 0;
+}
+
+.welcome p{
+    color:#8d8d9c;
+
+    max-width:600px;
+
+    line-height:1.6;
+}
+
+.suggestions{
+    margin-top:30px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    max-width:700px;
+}
+
+.suggestionCard{
+    background:#171722;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.suggestionCard:hover{
+    background:#202033;
+}
+
+@media(max-width:768px){
+
+    .welcome h1{
+        font-size:28px;
+    }
+
+    .suggestions{
+        margin-left:20px ;
+        margin-right:20px ;
+    }
+
+    .userMessage,
+    .gptMessage{
+        max-width:95%;
+    }
+
+}

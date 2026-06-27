@@ -1,0 +1,124 @@
+.worksSection {
+  width: 95%;
+  max-width: 1450px;
+
+  margin: 180px auto;
+
+  text-align: center;
+}
+
+.worksSection h2 {
+  margin-top: 24px;
+
+  font-size: 64px;
+  font-weight: 800;
+
+  color: #1f1b4d;
+}
+
+.worksSection h2 span {
+  color: #5b3df5;
+}
+
+.worksSection p {
+  color: #706d89;
+}
+
+.stepsGrid {
+  margin-top: 70px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 26px;
+}
+
+.stepCard {
+  position: relative;
+
+  background: #fffefc;
+
+  border: 1px solid #dfd6ff;
+
+  border-radius: 28px;
+
+  padding: 55px 35px;
+
+  text-align: left;
+
+  min-height: 260px;
+}
+
+.stepNumber {
+  position: absolute;
+
+  top: -14px;
+  left: 28px;
+
+  background: #5b3df5;
+
+  color: white;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stepIcon {
+  width: 60px;
+  height: 60px;
+
+  background: #ede9ff;
+
+  color: #5b3df5;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+
+  margin-bottom: 24px;
+}
+
+.stepCard h3 {
+  color: #1f1b4d;
+
+  margin-bottom: 16px;
+
+  font-size: 24px;
+}
+
+.stepCard p {
+  line-height: 1.7;
+
+  color: #6d6985;
+}
+
+@media (max-width: 1024px) {
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .worksSection h2 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .worksSection h2 {
+    font-size: 34px;
+  }
+
+  .stepCard {
+    padding: 45px 25px;
+  }
+}

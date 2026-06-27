@@ -1,0 +1,281 @@
+.hero {
+  width: 96%;
+  max-width: 1450px;
+  margin: 35px auto;
+  background: #fffefb;
+  border-radius: 38px;
+  padding: 75px 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+  border: 1px solid #e6dfff;
+  box-shadow: 0 15px 40px rgba(92, 63, 255, 0.07);
+}
+
+.heroContent {
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  background: #eee8ff;
+  color: #5f3df6;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.heroContent h1 {
+  margin: 0;
+  font-size: 72px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: #231f48;
+}
+
+.heroContent h1 span {
+  color: #5637e8;
+}
+
+.heroContent p {
+  margin-top: 28px;
+  max-width: 620px;
+  color: #65617c;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+
+.primaryBtn,
+.secondaryBtn {
+  border: none;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: #5637e8;
+  color: white;
+
+  border: none;
+  padding: 15px 28px;
+  border-radius: 999px;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.heroButtons a {
+  text-decoration: none;
+  color: inherit;
+}
+.secondaryBtn {
+  background: #ebe7ff;
+  color: #2d2858;
+}
+
+/* Hover Effects */
+
+.primaryBtn:hover {
+  transform: translateY(-4px);
+  color:#5637e8;
+  background-color: white;
+  box-shadow: 0 12px 25px rgba(86, 55, 232, 0.35);
+}
+
+.secondaryBtn:hover {
+  background: #5637e8;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(86, 55, 232, 0.25);
+}
+
+.primaryBtn:active,
+.secondaryBtn:active {
+  transform: translateY(0);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .arrow {
+  transform: translateX(6px);
+}
+
+.heroContent small {
+  color: #7d79a1;
+}
+
+.heroCard {
+  width: 470px;
+  background: #f4efff;
+  border-radius: 32px;
+  border: 1px solid #ddd3ff;
+  padding: 22px;
+}
+
+.chatBox {
+  background: white;
+  border-radius: 30px;
+  padding: 22px;
+  border: 1px solid #ebe5ff;
+}
+
+.chatHeader {
+  font-weight: 700;
+  color: #2d2858;
+  margin-bottom: 10px;
+}
+
+.chatBox p {
+  color: #777;
+  font-size: 14px;
+}
+
+.promptButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.promptButtons button {
+  border: none;
+  background: #eee8ff;
+  color: #5942d9;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.promptButtons button:hover {
+  background: #5637e8;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ========================= */
+/* Feature Grid */
+/* ========================= */
+
+.featureGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.featureGrid div {
+  background: #eae4ff;
+  color: #372f72;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.featureGrid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(86, 55, 232, 0.12);
+  background: #e4dcff;
+}
+
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+  .hero {
+    flex-direction: column;
+    padding: 50px;
+  }
+
+  .heroContent {
+    text-align: center;
+  }
+
+  .heroContent p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .heroCard {
+    width: 100%;
+    max-width: 550px;
+  }
+}
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 35px 25px;
+  }
+
+  .heroContent h1 {
+    font-size: 42px;
+  }
+
+  .heroContent p {
+    font-size: 16px;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroCard {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .promptButtons {
+    justify-content: center;
+  }
+}
