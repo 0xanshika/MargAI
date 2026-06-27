@@ -9,7 +9,7 @@ const getOpenAIAPIResponse = async (message) => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "HTTP-Referer": "http://localhost:3000",
+          "HTTP-Referer": ":3000",
           "X-Title": "MargAI"
         },
         body: JSON.stringify({

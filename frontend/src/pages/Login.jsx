@@ -17,33 +17,38 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   };
+  console.log(import.meta.env);
+console.log(import.meta.env.VITE_API_URL);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/auth/login`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        alert(data.message);
-        return;
       }
+    );
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      navigate("/workspace");
-    } catch (err) {
-      console.log(err);
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message);
+      return;
     }
-  };
+
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    navigate("/workspace");
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   return (
     <div className="login-page">
