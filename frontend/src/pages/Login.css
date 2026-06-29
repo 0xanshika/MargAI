@@ -236,6 +236,14 @@
 .login-back-home a:hover {
   color: #4b2a91;
 }
+.login-sign-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.login-sign-btn svg {
+  flex-shrink: 0;
+}
 
 /* mobile */
 @media (max-width: 480px) {

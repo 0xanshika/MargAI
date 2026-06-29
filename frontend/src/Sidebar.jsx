@@ -11,7 +11,7 @@ const userName = user?.name || "Guest User";
 
     const getAllThreads = async () =>{
         try{
-            const response = await fetch(`{import.meta.env.VITE_API_URL}/api/thread`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread`);
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             console.log(filteredData);
@@ -37,7 +37,7 @@ const userName = user?.name || "Guest User";
         setCurrThreadId(newThreadId);
 
         try{
-            const response = await fetch(`{import.meta.env.VITE_API_URL}/api/thread/${newThreadId}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${newThreadId}`);
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -51,7 +51,7 @@ const userName = user?.name || "Guest User";
 
     const deleteThread = async (threadId) =>{
         try{
-            const response = await fetch(`{import.meta.env.VITE_API_URL}/api/thread/${threadId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/thread/${threadId}`, {
                 method: "DELETE"
             });
             const res = await response.json();

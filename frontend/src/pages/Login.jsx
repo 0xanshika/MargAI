@@ -1,5 +1,6 @@
 import "./Login.css";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMail, FiLock, FiArrowRight } from "react-icons/fi";
 
@@ -10,6 +11,7 @@ function Login() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,6 +23,8 @@ function Login() {
 console.log(import.meta.env.VITE_API_URL);
  const handleSubmit = async (e) => {
   e.preventDefault();
+
+  setLoading(true);
 
   try {
     const response = await fetch(
@@ -47,6 +51,9 @@ console.log(import.meta.env.VITE_API_URL);
     navigate("/workspace");
   } catch (err) {
     console.log(err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -103,10 +110,23 @@ console.log(import.meta.env.VITE_API_URL);
           </div>
 
           {/* Sign In */}
-          <button type="submit" className="login-sign-btn">
-            <span>Sign In</span>
-            <FiArrowRight />
-          </button>
+          <button
+  type="submit"
+  className="login-sign-btn"
+  disabled={loading}
+>
+  {loading ? (
+    <>
+      <ClipLoader color="#fff" size={18} />
+      <span>Signing In...</span>
+    </>
+  ) : (
+    <>
+      <span>Sign In</span>
+      <FiArrowRight />
+    </>
+  )}
+</button>
         </form>
 
         

@@ -1,5 +1,6 @@
 import "./Login.css";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 import { Link, useNavigate } from "react-router-dom";
 import { FiUser, FiMail, FiLock, FiArrowRight } from "react-icons/fi";
 
@@ -11,6 +12,7 @@ function Signup() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,33 +22,40 @@ function Signup() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
+  setLoading(true);
+
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/auth/signup`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        alert(data.message);
-        return;
       }
+    );
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+    const data = await response.json();
 
-      navigate("/workspace");
-    } catch (err) {
-      console.log(err);
+    if (!response.ok) {
+      alert(data.message);
+      return;
     }
-  };
 
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    navigate("/workspace");
+  } catch (err) {
+    console.log(err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="login-page">
       <div className="login-card">
@@ -113,10 +122,23 @@ function Signup() {
           </div>
 
           {/* Submit */}
-          <button type="submit" className="login-sign-btn">
-            <span>Create Account</span>
-            <FiArrowRight />
-          </button>
+          <button
+  type="submit"
+  className="login-sign-btn"
+  disabled={loading}
+>
+  {loading ? (
+    <>
+      <ClipLoader color="#fff" size={18} />
+      <span>Creating Account...</span>
+    </>
+  ) : (
+    <>
+      <span>Create Account</span>
+      <FiArrowRight />
+    </>
+  )}
+</button>
         </form>
 
         {/* Bottom */}
